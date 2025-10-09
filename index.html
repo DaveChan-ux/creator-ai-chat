@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator AI Assistant - POC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <h1>🤖 Creator AI Assistant</h1>
+            <p>Ask me anything about your business!</p>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-container" id="messagesContainer">
+            <!-- Messages will be added here dynamically -->
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="quick-actions">
+            <button class="quick-action-btn" onclick="sendQuickAction('How are my top products performing?')">
+                📊 Top Products
+            </button>
+            <button class="quick-action-btn" onclick="sendQuickAction('How am I doing this month?')">
+                📈 Overview
+            </button>
+            <button class="quick-action-btn" onclick="sendQuickAction('How is my follower growth?')">
+                👥 Followers
+            </button>
+            <button class="quick-action-btn" onclick="sendQuickAction('What are my earnings?')">
+                💰 Earnings
+            </button>
+            <button class="quick-action-btn" onclick="sendQuickAction('What should I focus on?')">
+                🎯 Recommendations
+            </button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Ask me anything..."
+                    onkeypress="handleKeyPress(event)"
+                    autocomplete="off"
+                >
+                <button id="sendButton" onclick="sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M2 10L18 2L10 18L8 11L2 10Z" fill="white" stroke="white" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript files -->
+    <script src="mock-data.js"></script>
+    <script src="agent.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
