@@ -329,7 +329,7 @@ class CreatorAssistantAgent {
 
   // Template: Help Response
   formatHelpResponse() {
-    let response = `👋 **Hi! I'm your AI business assistant.**\n\n`;
+    let response = `👋 Hi! I'm your AI business assistant.\n\n`;
     response += `I can help you understand your creator business better. Try asking me:\n\n`;
     response += `• "How are my top products performing?"\n`;
     response += `• "How am I doing this month?"\n`;

@@ -107,6 +107,8 @@ body {
     cursor: pointer;
     color: #1a1b23;
     transition: opacity 0.2s;
+    position: relative;
+    z-index: 10;
 }
 
 .icon-btn:hover {
@@ -124,6 +126,11 @@ body {
     gap: 4px;
     flex: 1;
     margin-left: -30px; /* Compensate for back button to center title */
+    pointer-events: none; /* Allow clicks to pass through to back button */
+}
+
+.header-title-wrapper > * {
+    pointer-events: auto; /* Re-enable pointer events for child elements */
 }
 
 .header-title {
@@ -150,7 +157,125 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    background: #f7f7f7;
+    background: #ffffff;
+    position: relative;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 344px;
+}
+
+.welcome-title {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: #1a1b23;
+    text-align: center;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.welcome-input-container {
+    width: 100%;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+}
+
+.welcome-input-field {
+    display: flex;
+    align-items: center;
+    background: #f9f9fb;
+    border: 1px solid #e2e3e9;
+    border-radius: 100px;
+    height: 40px;
+    padding: 8px 4px 8px 12px;
+    gap: 8px;
+}
+
+#welcomeInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    color: #1a1b23;
+    outline: none;
+}
+
+#welcomeInput::placeholder {
+    color: #a3a3a3;
+}
+
+#welcomeSendButton {
+    background: #c3c3c6;
+    border: none;
+    border-radius: 100px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+#welcomeSendButton:hover {
+    background: #a3a3a3;
+}
+
+.initial-autocompletes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.initial-chip {
+    background: #EFEFEF;
+    border: none;
+    border-radius: 8px;
+    height: 32px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-center;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.initial-chip:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.initial-chip:active {
+    transform: translateY(0);
+}
+
+.initial-chip-text {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #5e6278;
+    text-align: center;
 }
 
 /* Scrollbar Styling */
@@ -244,6 +369,48 @@ body {
     width: 100%;
 }
 
+.message-autocompletes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.autocomplete-chip {
+    background: #EFEFEF;
+    border: none;
+    border-radius: 8px;
+    height: 32px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.autocomplete-chip:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.autocomplete-chip:active {
+    transform: translateY(0);
+}
+
+.autocomplete-chip-text {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #5e6278;
+    text-align: left;
+    white-space: nowrap;
+}
+
 /* Quick Actions */
 .quick-actions {
     padding: 12px 20px;
@@ -288,52 +455,64 @@ body {
 
 /* Input Container */
 .input-container {
-    padding: 20px;
+    padding: 16px;
     background: white;
-    border-top: 1px solid #e0e0e0;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+}
+
+.input-container.hidden {
+    display: none;
 }
 
 .input-wrapper {
     flex: 1;
+    max-width: 343px;
     display: flex;
     align-items: center;
-    background: #f5f5f5;
-    border-radius: 25px;
-    padding: 4px 8px 4px 16px;
+    background: #f9f9fb;
+    border: 1px solid #e2e3e9;
+    border-radius: 100px;
+    height: 40px;
+    padding: 8px 4px 8px 12px;
+    gap: 8px;
 }
 
 #userInput {
     flex: 1;
     border: none;
     background: transparent;
-    padding: 10px;
-    font-size: 15px;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    color: #1a1b23;
     outline: none;
-    font-family: inherit;
+    padding: 0;
+}
+
+#userInput::placeholder {
+    color: #a3a3a3;
 }
 
 #sendButton {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #c3c3c6;
     color: white;
     border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: background 0.2s;
 }
 
 #sendButton:hover {
-    transform: scale(1.05);
+    background: #a3a3a3;
 }
 
 #sendButton:active {
-    transform: scale(0.95);
+    background: #8a8a8a;
 }
 
 /* Typing Indicator */

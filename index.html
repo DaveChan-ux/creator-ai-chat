@@ -30,7 +30,7 @@
             <!-- Header Controls -->
             <div class="header-controls">
                 <div class="header-left">
-                    <button class="icon-btn back-btn">
+                    <button class="icon-btn back-btn" onclick="goBackToWelcome()">
                         <svg width="11" height="20" viewBox="0 0 11 20" fill="none">
                             <path d="M9.5 1L1 9.75L9.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -59,26 +59,44 @@
 
         <!-- Messages Area -->
         <div class="messages-container" id="messagesContainer">
+            <!-- Empty State -->
+            <div class="welcome-screen" id="welcomeScreen">
+                <h2 class="welcome-title">Back at it Dave!</h2>
+                <div class="welcome-input-container">
+                    <div class="welcome-input-field">
+                        <input 
+                            type="text" 
+                            id="welcomeInput" 
+                            placeholder="How can I help you today?"
+                            onkeypress="handleWelcomeKeyPress(event)"
+                            autocomplete="off"
+                        >
+                        <button id="welcomeSendButton" onclick="sendWelcomeMessage()">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M6 0L12 6L6 12L5.25 11.25L9.75 6.75H0V5.25H9.75L5.25 0.75L6 0Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="initial-autocompletes" id="initialAutocompletes">
+                    <button class="initial-chip" onclick="sendQuickAction('What are my top products')">
+                        What are my top products
+                    </button>
+                    <button class="initial-chip" onclick="sendQuickAction('Give me an overview of my shop')">
+                        Give me an overview of my shop
+                    </button>
+                    <button class="initial-chip" onclick="sendQuickAction('Tell me about my followers')">
+                        Tell me about my followers
+                    </button>
+                    <button class="initial-chip" onclick="sendQuickAction('Tell me about my earnings')">
+                        Tell me about my earnings
+                    </button>
+                    <button class="initial-chip" onclick="sendQuickAction('Give me recommendations')">
+                        Give me recommendations
+                    </button>
+                </div>
+            </div>
             <!-- Messages will be added here dynamically -->
-        </div>
-
-        <!-- Quick Action Buttons -->
-        <div class="quick-actions">
-            <button class="quick-action-btn" onclick="sendQuickAction('How are my top products performing?')">
-                📊 Top Products
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickAction('How am I doing this month?')">
-                📈 Overview
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickAction('How is my follower growth?')">
-                👥 Followers
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickAction('What are my earnings?')">
-                💰 Earnings
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickAction('What should I focus on?')">
-                🎯 Recommendations
-            </button>
         </div>
 
         <!-- Input Area -->
@@ -87,13 +105,13 @@
                 <input 
                     type="text" 
                     id="userInput" 
-                    placeholder="Ask me anything..."
+                    placeholder="How can I help you today?"
                     onkeypress="handleKeyPress(event)"
                     autocomplete="off"
                 >
                 <button id="sendButton" onclick="sendMessage()">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M2 10L18 2L10 18L8 11L2 10Z" fill="white" stroke="white" stroke-width="2"/>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 0L12 6L6 12L5.25 11.25L9.75 6.75H0V5.25H9.75L5.25 0.75L6 0Z" fill="currentColor"/>
                     </svg>
                 </button>
             </div>
