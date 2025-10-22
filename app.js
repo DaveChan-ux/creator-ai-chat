@@ -24,11 +24,28 @@ function addMessage(role, content) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${role}`;
     
+    // Add sender name for user messages
+    if (role === 'user') {
+        const senderDiv = document.createElement('div');
+        senderDiv.className = 'message-sender';
+        senderDiv.textContent = 'Dave';
+        messageDiv.appendChild(senderDiv);
+    }
+    
     const messageContent = document.createElement('div');
     messageContent.className = 'message-content';
     messageContent.textContent = content;
     
     messageDiv.appendChild(messageContent);
+    
+    // Add disclaimer for assistant messages
+    if (role === 'assistant') {
+        const disclaimerDiv = document.createElement('div');
+        disclaimerDiv.className = 'message-disclaimer';
+        disclaimerDiv.innerHTML = 'LTK AI can make mistakes.<br>Please double check responses.';
+        messageDiv.appendChild(disclaimerDiv);
+    }
+    
     messagesContainer.appendChild(messageDiv);
     
     // Scroll to bottom
