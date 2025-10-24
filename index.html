@@ -109,9 +109,15 @@
                     onkeypress="handleKeyPress(event)"
                     autocomplete="off"
                 >
-                <button id="sendButton" onclick="sendMessage()">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <button id="sendButton" onclick="handleSendButtonClick()">
+                    <!-- Send Icon (shown by default) -->
+                    <svg id="sendIcon" width="12" height="12" viewBox="0 0 12 12" fill="none">
                         <path d="M6 0L12 6L6 12L5.25 11.25L9.75 6.75H0V5.25H9.75L5.25 0.75L6 0Z" fill="currentColor"/>
+                    </svg>
+                    
+                    <!-- Stop Icon (hidden by default) -->
+                    <svg id="stopIcon" width="12" height="12" viewBox="0 0 12 12" fill="none" style="display: none;">
+                        <rect width="12" height="12" rx="2" fill="currentColor"/>
                     </svg>
                 </button>
             </div>
