@@ -1,3 +1,39 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Mediumitalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -246,36 +282,31 @@ body {
 }
 
 .initial-chip {
-    background: #EFEFEF;
+    background: #eeeff2;
     border: none;
     border-radius: 8px;
-    height: 32px;
-    padding: 6px 16px;
+    padding: 8px;
     cursor: pointer;
     transition: all 0.2s;
     display: flex;
     align-items: center;
-    justify-content: flex-center;
+    justify-content: center;
     width: fit-content;
     max-width: 100%;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #5e6278;
 }
 
 .initial-chip:hover {
-    background: #f0f0f0;
+    background: #e0e0e0;
     transform: translateY(-1px);
 }
 
 .initial-chip:active {
     transform: translateY(0);
-}
-
-.initial-chip-text {
-    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    color: #5e6278;
-    text-align: center;
 }
 
 /* Scrollbar Styling */
