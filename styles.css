@@ -1,3 +1,39 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('fonts/SofiaPro_Mediumitalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -17,10 +53,8 @@ body {
 
 /* Chat Container */
 .chat-container {
-    width: 100%;
-    max-width: 800px;
-    height: 90vh;
-    max-height: 700px;
+    width: 375px;
+    height: 817px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -31,21 +65,127 @@ body {
 
 /* Header */
 .chat-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: #ffffff;
+    color: #1a1b23;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.chat-header h1 {
-    font-size: 24px;
+/* Status Bar */
+.status-bar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: relative;
+    font-size: 15px;
     font-weight: 600;
-    margin-bottom: 5px;
 }
 
-.chat-header p {
-    font-size: 14px;
-    opacity: 0.9;
+.status-left {
+    flex: 1;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.status-notch {
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    transform: translateX(-50%);
+    width: 164px;
+    height: 31px;
+    background: #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.status-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    min-height: 44px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1a1b23;
+    transition: opacity 0.2s;
+    position: relative;
+    z-index: 10;
+}
+
+.icon-btn:hover {
+    opacity: 0.7;
+}
+
+.icon-btn:active {
+    opacity: 0.5;
+}
+
+.header-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1;
+    margin-left: -30px; /* Compensate for back button to center title */
+    pointer-events: none; /* Allow clicks to pass through to back button */
+}
+
+.header-title-wrapper > * {
+    pointer-events: auto; /* Re-enable pointer events for child elements */
+}
+
+.header-title {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 28px;
+    color: #1a1b23;
+    margin: 0;
+}
+
+.chat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #1a1b23;
 }
 
 /* Messages Container */
@@ -53,7 +193,120 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    background: #f7f7f7;
+    background: #ffffff;
+    position: relative;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 344px;
+}
+
+.welcome-title {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: #1a1b23;
+    text-align: center;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.welcome-input-container {
+    width: 100%;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+}
+
+.welcome-input-field {
+    display: flex;
+    align-items: center;
+    background: #f9f9fb;
+    border: 1px solid #e2e3e9;
+    border-radius: 100px;
+    height: 40px;
+    padding: 8px 4px 8px 12px;
+    gap: 8px;
+}
+
+#welcomeInput {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    color: #1a1b23;
+    outline: none;
+}
+
+#welcomeInput::placeholder {
+    color: #a3a3a3;
+}
+
+#welcomeSendButton {
+    background: #c3c3c6;
+    border: none;
+    border-radius: 100px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+#welcomeSendButton:hover {
+    background: #a3a3a3;
+}
+
+.initial-autocompletes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.initial-chip {
+    background: #eeeff2;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #5e6278;
+}
+
+.initial-chip:hover {
+    background: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.initial-chip:active {
+    transform: translateY(0);
 }
 
 /* Scrollbar Styling */
@@ -78,6 +331,7 @@ body {
 .message {
     margin-bottom: 16px;
     display: flex;
+    flex-direction: column;
     animation: slideIn 0.3s ease-out;
 }
 
@@ -93,33 +347,99 @@ body {
 }
 
 .message.user {
-    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .message.assistant {
-    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.message-sender {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #1a1b23;
+    margin-bottom: 2px;
+    padding: 0 2px;
 }
 
 .message-content {
-    max-width: 75%;
-    padding: 12px 16px;
-    border-radius: 18px;
-    line-height: 1.5;
+    max-width: 280px;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 24px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .message.user .message-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-bottom-right-radius: 4px;
+    background: #eeeff2;
+    color: #5e6278;
 }
 
 .message.assistant .message-content {
-    background: white;
-    color: #333;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    color: #5e6278;
+    box-shadow: none;
+    max-width: 100%;
+    padding: 8px 0;
+}
+
+.message-disclaimer {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #9b9fb0;
+    text-align: right;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.message-autocompletes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.autocomplete-chip {
+    background: #EFEFEF;
+    border: none;
+    border-radius: 8px;
+    height: 32px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.autocomplete-chip:hover {
+    background: #f0f0f0;
+    transform: translateY(-1px);
+}
+
+.autocomplete-chip:active {
+    transform: translateY(0);
+}
+
+.autocomplete-chip-text {
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #5e6278;
+    text-align: left;
+    white-space: nowrap;
 }
 
 /* Quick Actions */
@@ -166,52 +486,64 @@ body {
 
 /* Input Container */
 .input-container {
-    padding: 20px;
+    padding: 16px;
     background: white;
-    border-top: 1px solid #e0e0e0;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+}
+
+.input-container.hidden {
+    display: none;
 }
 
 .input-wrapper {
     flex: 1;
+    max-width: 343px;
     display: flex;
     align-items: center;
-    background: #f5f5f5;
-    border-radius: 25px;
-    padding: 4px 8px 4px 16px;
+    background: #f9f9fb;
+    border: 1px solid #e2e3e9;
+    border-radius: 100px;
+    height: 40px;
+    padding: 8px 4px 8px 12px;
+    gap: 8px;
 }
 
 #userInput {
     flex: 1;
     border: none;
     background: transparent;
-    padding: 10px;
-    font-size: 15px;
+    font-family: 'Sofia Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    color: #1a1b23;
     outline: none;
-    font-family: inherit;
+    padding: 0;
+}
+
+#userInput::placeholder {
+    color: #a3a3a3;
 }
 
 #sendButton {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #c3c3c6;
     color: white;
     border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: background 0.2s;
 }
 
 #sendButton:hover {
-    transform: scale(1.05);
+    background: #a3a3a3;
 }
 
 #sendButton:active {
-    transform: scale(0.95);
+    background: #8a8a8a;
 }
 
 /* Typing Indicator */
